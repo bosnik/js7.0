@@ -1,31 +1,52 @@
+'use strict'
 
-var week = 
-['Понедельник',
-'Вторник',
-'Среда',
-'Четверг',
-'Пятница',
-'Суббота',
-'Воскресение'];
+var re = /-/gi;
+var rew = /легким/gi;
+let str = 'урок-3-был слишком легким';
 
-for (let i = 0; i < week.length; i++) {
-         if (week[i] == 'Суббота' || week[i] == 'Воскресение') {
-         document.write(`<p><b>${week[i]}</i></p>`);
-        } else if (week[i] == 'Среда') {
-            document.write(`<p><i>${week[i]}</i></p>`);
-        } else {
-         document.write(`<p>${week[i]}</p>`);
-       }
-     }
-     
-console.log(week);
+function capitalize(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
+}
+alert(capitalize(str.replace(re, ' ').replace(rew, 'легкoo'))); 
+
+let arr =[20, 33, 1, 'Человек', 2, 3];
+let bar = "Человек";
+arr.splice( arr.indexOf( bar ), 3 );
+
+let sum = 0;
+
+for(let i = 0; i < arr.length; i++) {
+  sum += Math.pow(arr[i], 3);
+}
+let sumSqrt = Math.sqrt(sum);
+console.log(sumSqrt);
 
 
-/* let arr = ['127', '334', '322', '761', '993', '978', '333'];
+function fun(arg) {
+ for (let i = 0; i < 1; i++){
+        
+  arg = prompt('Введите текст');
+ 
+       if ( (typeof(arg)) === 'string'
+       && (typeof(arg)) !== null 
+       && arg != '' 
+       && arg.trim()
+       && arg.length < 20){
+       alert(arg);
+  }else if( arg > 20 && (typeof(arg)) !== null) {
+  arg = arg.slice(0, 1) + arg.slice(-5)  + '...';
+    alert(arg);
+  }
+   else if( alert("Не ввели данные")){
 
-arr.forEach((e) => {
-       if (e[0] == '3' || e[0] == '7') {
-         document.write(`<br>${e}`);
-       }
-     });
- */
+  } else{
+       i = i - 1;
+  }
+}
+}
+fun();
+
+
+
+
+
