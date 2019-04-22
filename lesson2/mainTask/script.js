@@ -9,8 +9,8 @@ let appData = {
     budget: money,
     income: [],
     saving,
-     expenses:{},
-     optionalExpenses:{}
+    expenses:{},
+    optionalExpenses:{}
 };
 
 console.log(appData);
@@ -19,16 +19,17 @@ console.log(appData);
           let question = prompt('Введите обязательную статью расходов в этом месяце'),
           answer1 = prompt('Во сколько обойдется?');
 
-          if ( (typeof(question))=== 'string' && (typeof(question)) != null 
-          && (typeof(answer1)) != null && question != ''
-          && answer1 != '' && question.length < 50 ){
+          if ( (typeof(question))=== 'string'
+          && (typeof(question)) != null 
+          && (typeof(answer1)) != null 
+          && question != ''
+          && answer1 != '' 
+          && question.length < 50 ){
           console.log("Done");
           appData.expenses[question] = answer1;
          
      }else{
           i--;
-          console.log(typeof(question));
-          console.log(question);
      }
 };
 
@@ -41,9 +42,9 @@ console.log(appData);
           answer1 = +prompt('Во сколько обойдется?');
 
           if ( (typeof(question))=== 'string'
-           && (typeof(question)) != null 
+          && (typeof(question)) != null 
           && (typeof(answer1)) != null
-           && question != ''
+          && question != ''
           && answer1 != '' 
           && question.length < 50 ){
           console.log("Done");
@@ -64,9 +65,9 @@ do{
      answer1 = +prompt('Во сколько обойдется?');
 
      if ( (typeof(question))=== 'string'
-      && (typeof(question)) != null 
+     && (typeof(question)) != null 
      && (typeof(answer1)) != null
-      && question != ''
+     && question != ''
      && answer1 != '' 
      && question.length < 50 ){
      console.log("Done");
