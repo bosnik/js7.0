@@ -27,6 +27,8 @@ console.log(appData);
          
      }else{
           i--;
+          console.log(typeof(question));
+          console.log(question);
      }
 };
 
