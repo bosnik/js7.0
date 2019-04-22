@@ -32,32 +32,48 @@ console.log(appData);
 
 /* -------while-------- */
 
-/*  let question = prompt('Введите обязательную статью расходов в этом месяце'),
-     answer1 = prompt('Во сколько обойдется?');
+/* var i = 0;
+ while (i < 2) {
+     
+          let question = prompt('Введите обязательную статью расходов в этом месяце'),
+          answer1 = +prompt('Во сколько обойдется?');
 
-appData.expenses[question] = answer1;
+          if ( (typeof(question))=== 'string'
+           && (typeof(question)) != null 
+          && (typeof(answer1)) != null
+           && question != ''
+          && answer1 != '' 
+          && question.length < 50 ){
+          console.log("Done");
+          appData.expenses[question] = answer1;
+         i++;
+     }else{
+          i--;
+     }
+} */
 
-while((typeof(question))=== 'string' && (typeof(question)) != null 
-&& (typeof(answer1)) != null && question != ''
-&& answer1 != '' && question.length < 50 ){
-     console.log("Good");
-}
-appData.moneyPerDay = appData.budget / 30;
-alert("Ежедневный бюджет: " + appData.moneyPerDay); */
+
 
 /* -------while-------- */
 /* -------doWhile-------- */
-
-/* do{
+/* var i = 0;
+do{
      let question = prompt('Введите обязательную статью расходов в этом месяце'),
-     answer1 = prompt('Во сколько обойдется?');
+     answer1 = +prompt('Во сколько обойдется?');
+
+     if ( (typeof(question))=== 'string'
+      && (typeof(question)) != null 
+     && (typeof(answer1)) != null
+      && question != ''
+     && answer1 != '' 
+     && question.length < 50 ){
+     console.log("Done");
      appData.expenses[question] = answer1;
-     appData.moneyPerDay = appData.budget / 30;
-     alert("Ежедневный бюджет: " + appData.moneyPerDay); 
-     console.log("Good");
-}while((typeof(question))=== 'string' && (typeof(question)) != null 
-&& (typeof(answer1)) != null && question != ''
-&& answer1 != '' && question.length < 50 ); */
+    i++;
+ }else{
+     i--;
+}
+}while (i < 2); */
 
 /* -------doWhile-------- */
 
