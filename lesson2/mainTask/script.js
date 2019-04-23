@@ -90,7 +90,7 @@ if(appData.moneyPerDay < 100){
 }else if(appData.moneyPerDay > 100 && appData.moneyPerDay < 2000){
      console.log("Средний уровень достанка");
 
-}else if(appData.moneyPerDay > 100){
+}else if(appData.moneyPerDay > 2000){
      console.log("Высокий уровень достанка");
 
 }else{
