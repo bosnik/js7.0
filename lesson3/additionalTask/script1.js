@@ -39,7 +39,7 @@ function fun(arg) {
    else if( alert("Не ввели данные")){
 
   } else{
-       i = i - 1;
+       i--;
   }
 }
 }

@@ -41,7 +41,7 @@ function chooseExpenses() {
           appData.expenses[question] = answer1;
          
      }else{
-          i = i - 1;
+          i--;
      }
    }
 }
