@@ -1,13 +1,11 @@
-'use strict'
+'use strict';
 
 let money, time;
 
 function start(){
      money = +prompt("Ващ бюджет на месяц?");
      time = prompt("Введите дату в форме YYYY-MM-DD");
-
-     while(isNaN(money) || money == '' 
-          || money == null) {
+     while(isNaN(money) || money == '' || money == null) {
            money = +prompt("Ващ бюджет на месяц?");
      
      }
@@ -26,10 +24,9 @@ let appData = {
      for (let i = 0; i < 2; i++){
           let question = prompt('Введите обязательную статью расходов в этом месяце'),
           answer1 = prompt('Во сколько обойдется?');
-
-          if ( (typeof(question))=== 'string'
-          && (typeof(question)) != null 
-          && (typeof(answer1)) != null 
+          if ( typeof(question)=== 'string'
+          && typeof(question) != "object" 
+          && typeof(answer1) != "object" 
           && question != ''
           && answer1 != '' 
           && question.length < 50 ){
@@ -43,7 +40,6 @@ let appData = {
     },
     detectDayBudget: function(){
      appData.moneyPerDay = (appData.budget / 30).toFixed();
-
      alert("Ежедневный бюджет: " + appData.moneyPerDay);
     },
     detectLevel: function() {
@@ -79,7 +75,7 @@ let appData = {
     chooseIncome: function() {
      for (let i = 0; i < 1; i++){
           let items = prompt('Что  принесет дополнительный доход? (Перечислите через запятую)', '');
-          if ((typeof (items)) === 'string' && items != '' && (typeof (items)) != null){
+          if (typeof (items) === 'string' && items != '' && typeof (items) != "object"){
                appData.income = items.split(', ');
                 appData.income.push(prompt('Можнт что то еще?'));
                 appData.income.sort();
@@ -97,7 +93,6 @@ let appData = {
 for (let key in appData) {
      console.log('Наша программа включает в себя данные:' + key + ': ' + appData[key]);
    }
-
 console.log(appData);
 
 
