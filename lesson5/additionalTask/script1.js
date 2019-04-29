@@ -23,16 +23,18 @@ console.log(sumSqrt);
 
 
 function fun(arg) {
- for (let i = 0; i < 1; i++){       
-  arg = prompt('Введите текст');
-       if ( typeof(arg) === 'string'
-       && typeof(arg) !== "object" 
+ for (let i = 0; i < 1; i++){
+        
+  arg = prompt('Введите текст').trim();
+ 
+       if ( (typeof(arg)) === 'string'
+       && (typeof(arg)) !== null 
        && arg != '' 
        && arg.length < 20){
-       alert(arg.trim());
-  }else if( arg.length > 20 && arg.length !== '') {
+       alert(arg);
+  }else if( arg.length > 20) {
     arg = arg.slice(0, 1) + arg.slice(-5)  + '...';
-    alert(arg.trim());
+    alert(arg);
   }
    else if( alert("Не ввели данные")){
 
