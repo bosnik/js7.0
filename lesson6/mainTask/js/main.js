@@ -17,43 +17,42 @@ let startBtn = document.getElementById('start'),
   dayValue = document.querySelector('.day-value'),
   chooseItem = document.querySelector('.choose-income'),
   expensesItem = document.querySelectorAll('.expenses-item'),
-  optionalExpenses = document.getElementsByClassName('optionalexpenses-item'),
-  buttons = document.getElementsByTagName('button'),
+  optionalExpenses = document.querySelectorAll('.optionalexpenses-item'),
+  buttons = document.querySelectorAll('button'),
   accept1 = document.querySelector('.expenses-item-btn'),
   accept2 = document.querySelector('.optionalexpenses-btn'),
   count = document.querySelector('.count-budget-btn');
 
   let money, time;
-  
+
+
 startBtn.addEventListener('click', function(){
  
   time = prompt("Введите дату в форме YYYY-MM-DD");
-  money = +prompt("Ващ бюджет на месяц?");
+  money = +prompt("Ваш бюджет на месяц?");
 
   while(isNaN(money) || money == '' || money == null) {
-        money = +prompt("Ващ бюджет на месяц?");
+        money = +prompt("Ваш бюджет на месяц?");
   }
         appData.budget = money;
         appData.timeData = time;
-        budgetValue.textContent = money.toFixed();
+               budgetValue.textContent = money.toFixed();
         yearValue.value = new Date(Date.parse(time)).getFullYear();
         monthValue.value = new Date(Date.parse(time)).getMonth() + 1;
-        dayValue.value = new Date(Date.parse(time)).getDay() - 2;
+        dayValue.value = new Date(Date.parse(time)).getUTCDate();
 });
 accept1.disabled = true;
-
-expensesItem.forEach(function (element, i) {
-  element.addEventListener('change', function () {
-      
-        if (element.value == '') {
-          accept1.disabled = true;
-          
-        } else {
-          accept1.disabled = false;
-          accept1.style.backgroundImage = 'none';
-        }
-    });
-});
+count.disabled = true;
+startBtn.addEventListener('click', function () {
+    
+      if (startBtn.value == ' ' ) {
+        count.disabled = true;
+        accept1.disabled = true;
+      } else {
+        count.disabled = false;
+        accept1.disabled = false;
+      } 
+  });
 
 accept1.addEventListener('click', function() {
   let sum = 0;
@@ -80,22 +79,37 @@ expensesValue.textContent = sum;
 appData.expensesSum = sum;
 });
 
+accept2.disabled = true;
+
+
+    optionalExpenses.forEach(function (elem, i) {
+    elem.addEventListener('change', function () {
+      if (elem.value == ' ') {
+          accept2.disabled = true;
+        } else {
+          accept2.disabled = false;
+        }
+    });
+});
+
 accept2.addEventListener('click', function() {
   for (let i = 0; i < optionalExpenses.length; i++){
+    
     let optional = optionalExpenses[i].value;
     appData.optionalExpenses[i] = optional;
-    optionalexpensesValuse.textContent += appData.optionalExpenses[i] + '';    
-}  
+    optionalexpensesValuse.textContent += appData.optionalExpenses[i] + ' ';    
+    
+  }  
 });
 
 count.addEventListener('click', function() {
   let expenses = appData.expensesSum;
 
   if(appData.budget != undefined) {
-    appData.moneyPerDay = (appData.budget - expenses / 30).toFixed();
+    appData.moneyPerDay = ((appData.budget - expenses) / 30).toFixed();
   daybudgetValue.textContent = appData.moneyPerDay;
 
-  if(appData.moneyPerDay < 100){
+  } if(appData.moneyPerDay < 100){
     levelValue.textContent = "Минимальный уровень достанка";
 
 }else if(appData.moneyPerDay > 100 && appData.moneyPerDay < 2000){
@@ -106,10 +120,7 @@ count.addEventListener('click', function() {
 
 }else{
   levelValue.textContent = "Произошла ошибка";
-}
-  }else{
-    daybudgetValue.textContent = "Произошла ошибка";
-  }
+} 
 });
 
 chooseItem.addEventListener('input', function() {
